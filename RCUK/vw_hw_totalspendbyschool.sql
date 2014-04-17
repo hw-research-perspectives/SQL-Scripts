@@ -12,4 +12,5 @@ select t.TopicId,
 (case i.OrganisationDepartment when 'Other' then sum(i.TotalGrantValue) else 0 end) AS Other 
 from vw_hw_grants i 
 join topicmap_grants_100 t on(i.ID = t.ID) 
+where Proportion > 0.08
 group by t.TopicID,i.OrganisationDepartment;
